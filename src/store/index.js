@@ -56,26 +56,32 @@ export default new Vuex.Store({
     },
     changeLanguage(state, val) {
       const languageMode = {
-        'C': 'c',
+   //     'C': 'c',
+        'C++14': 'cpp',
         'C++': 'cpp',
         'C#': 'csharp',
-        'Java': 'java',
+        'Java7': 'java',
+        'Java8': 'java',
         'Python': 'python',
-        'Python3': 'python',
-        'Javascript': 'javascript',
-        'NodeJs': 'javascript',
-        'Ruby': 'ruby'
+        // 'Python3': 'python',
+        // 'Javascript': 'javascript',
+        'NodeJs6': 'javascript',
+        'NodeJs8': 'javascript',
+        // 'Ruby': 'ruby'
       }
       const extension = {
-        'C': '.c',
+        //'C': '.c',
         'C++': '.cpp',
+        'C++14': '.cpp',
         'C#': '.cs',
-        'Java': '.java',
+        'Java7': '.java',
+        'Java8': '.java',
         'Python': '.py',
-        'Python3': '.py',
-        'Javascript': '.js',
-        'NodeJs': '.js',
-        'Ruby': '.rb'
+        // 'Python3': '.py',
+        // 'Javascript': '.js',
+        'NodeJs6': '.js',
+        'NodeJs8': '.js',
+        // 'Ruby': '.rb'
       }
       state.language = val
       state.languageMode = languageMode[state.language]
@@ -213,26 +219,35 @@ export default new Vuex.Store({
         case 'C++':
           lang = 'cpp';
           break
+          case 'C++14':
+          lang = 'cpp14';
+          break
         case 'C#':
           lang = 'csharp';
           break
-        case 'Javascript':
-          lang = 'jsv';
+        // case 'Javascript':
+        //   lang = 'jsv';
+        //   break
+        case 'Java7':
+          lang = 'java7';
           break
-        case 'Java':
-          lang = 'java';
-          break
+        case 'Java8':
+          lang = 'java8';
+          break;
         case 'Python':
           lang = 'py2';
           break
-        case 'Python3':
-          lang = 'py3';
+        // case 'Python3':
+        //   lang = 'py3';
+        //   break
+        case 'NodeJs6':
+          lang = 'nodejs6';
           break
         case 'NodeJs':
           lang = 'js';
           break
-        case 'Ruby':
-          lang = 'ruby';
+        case 'NodeJs8':
+          lang = 'nodejs8';
           break;
       }
 
@@ -249,7 +264,7 @@ export default new Vuex.Store({
           'Access-Token': '79f3c2f8301fc60565de003f4ac76a1d4e5242cb0836995ec2bd28fd083ce86f'
         }
       }
-      return axios.post('https://judge.codingblocks.com/api/submission', {
+      return axios.post('https://judge2.codingblocks.com/api/submissions', {
         lang,
         source: base64.encode(state.code[state.language]),
         test_count: 1,
