@@ -126,7 +126,8 @@
     components: {language, Settings, Share, LoginButton},
     data() {
       return {
-        languages: ['C', 'C++', 'C#', 'Java', 'Python', 'Python3', 'Javascript', 'NodeJs', 'Ruby'],
+        languages: ['C++', 'C++14', 'C#', 'Java7', 'Java8', 'Python', 'NodeJs6', 'NodeJs8'],
+//Addedd all the newly added languages for Judge2
         fullscreen: false,
         loading: false,
         fileName: this.$store.state.fileName
